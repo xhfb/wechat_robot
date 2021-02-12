@@ -15,7 +15,7 @@ class WechatRobot():
     '''
     def __init__(self):
         #微信.exe路径
-        self.start_address=r'C:\Program Files (x86)\Tencent\WeChat\WeChat.exe'
+        self.start_address="Add your wechat.exe address"
         #搜索框定位图标（加号）
         self.wechat_locate1_address="Add your picture1 path"
         #聊天气泡定位图标（右下角）
@@ -28,11 +28,13 @@ class WechatRobot():
         self.wechat_locate5_address="Add your picture5 path"
         #置顶 图标
         self.wechat_locate6_address="Add your picture6 path"
+    
     def back_to_desktop(self):
         '''
         功能说明：模拟按键win+d返回桌面
         '''
         auto.hotkey('win', 'd')
+    
     def open_app(self,cue=True):
         '''
         根据路径打开app\n
@@ -73,6 +75,7 @@ class WechatRobot():
             auto.click(sd_button.x,sd_button.y)
         except:
             pass
+    
     def find(self,name="",key=True):
         '''
         功能描述:利用微信搜索框查找人名，可直接切换到聊天框\n
@@ -96,6 +99,7 @@ class WechatRobot():
             time.sleep(t)
             auto.press("enter")
             #print("按下enter")
+    
     def send_msg(self,msg,name=""):
         '''
         发送消息\n
@@ -108,6 +112,7 @@ class WechatRobot():
         pyperclip.copy(msg)
         auto.hotkey("ctrl","v")#粘贴
         auto.hotkey("alt","s")#模拟发送
+    
     def recive_msg(self,name="",num=1):
         '''
         接收消息\n
@@ -148,8 +153,8 @@ class WechatRobot():
         for i in range(len(msg_list)):
             if msg_list[i]=="":
                 msg_list[i]="<表情>"
-
         return msg_list[-num:]
+    
     def get_name(self):
         lc1=auto.locateCenterOnScreen(self.wechat_locate1_address)
         auto.click(x=lc1.x+80,y=lc1.y,clicks=1)
@@ -166,6 +171,7 @@ class WechatRobot():
             auto.hotkey('ctrl','c')
             print(2)
         return pyperclip.paste()
+    
     def acceptNewmsg(self,total=5):
         '''
         接受新消息，返回消息字典 如：{'肖发博': ['q', 'q', '，', '1', '1', '，', '哈哈哈', '嘻嘻'],'小明':['最近过的怎么样？','想死你了']}\n
