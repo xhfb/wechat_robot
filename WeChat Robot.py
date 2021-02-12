@@ -8,23 +8,26 @@ class WechatRobot():
     start_address:微信.exe路径(例如：'C:\Program Files (x86)\Tencent\WeChat\WeChat.exe')\n
     wechat_locate1_address:定位图标1路径  (搜索框右侧+号)\n
     wechat_locate2_address:定位图标2路径  (聊天气泡右下角)\n
-    wechat_locate2_address:定位图标3路径  (登录按钮)\n
+    wechat_locate3_address:定位图标3路径  (登录按钮)\n
+    wechat_locate4_address:定位图标4路径  (新消息气泡)\n
+    wechat_locate5_address:定位图标5路径  ('群聊名称' 图片)\n
+    wechat_locate6_address:定位图标6路径  (置顶图标)\n
     '''
     def __init__(self):
         #微信.exe路径
         self.start_address=r'C:\Program Files (x86)\Tencent\WeChat\WeChat.exe'
         #搜索框定位图标（加号）
-        self.wechat_locate1_address=r'D:\Final\locate_img\8.png'
+        self.wechat_locate1_address="Add your picture1 path"
         #聊天气泡定位图标（右下角）
-        self.wechat_locate2_address=r'D:\Final\locate_img\wechat_talk_bubble.png'
+        self.wechat_locate2_address="Add your picture2 path"
         #登录按钮
-        self.wechat_locate3_address=r'D:\Final\locate_img\wechat_loginButton.png'
+        self.wechat_locate3_address="Add your picture3 path"
         #新消息气泡
-        self.wechat_locate4_address=r'D:\Final\locate_img\wechat_newmsg2.png'
+        self.wechat_locate4_address="Add your picture4 path"
         #群聊名称 图片
-        self.wechat_locate5_address=r'D:\Final\locate_img\wechat_QLname.png'
+        self.wechat_locate5_address="Add your picture5 path"
         #置顶 图标
-        self.wechat_locate6_address=r'D:\Final\locate_img\wechat_zd.png'
+        self.wechat_locate6_address="Add your picture6 path"
     def back_to_desktop(self):
         '''
         功能说明：模拟按键win+d返回桌面
@@ -165,7 +168,7 @@ class WechatRobot():
         return pyperclip.paste()
     def acceptNewmsg(self,total=5):
         '''
-        接受新消息，返回消息字典 如：{'肖发博': ['q', 'q', '，', '1', '1', '，', '哈哈哈', '嘻嘻']}\n
+        接受新消息，返回消息字典 如：{'肖发博': ['q', 'q', '，', '1', '1', '，', '哈哈哈', '嘻嘻'],'小明':['最近过的怎么样？','想死你了']}\n
         total 接受最新的几条消息默认为5
         '''
         newmsg_dic={}#新消息字典 
