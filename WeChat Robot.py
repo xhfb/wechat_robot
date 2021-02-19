@@ -72,7 +72,7 @@ class WechatRobot():
         
         sd_button=auto.locateCenterOnScreen(self.wechat_locate6_address)
         try:
-            auto.click(sd_button.x,sd_button.y)
+            auto.click(sd_button.x,sd_button.y)#点击置顶按钮
         except:
             pass
     
@@ -174,7 +174,7 @@ class WechatRobot():
     
     def acceptNewmsg(self,total=5):
         '''
-        接受新消息，返回消息字典 如：{'肖发博': ['q', 'q', '，', '1', '1', '，', '哈哈哈', '嘻嘻'],'小明':['最近过的怎么样？','想死你了']}\n
+        接受新消息，返回消息字典 如：{'蜡笔小新': ['q', 'q', '，', '1', '1', '，', '哈哈哈', '嘻嘻'],'小明':['最近过的怎么样？','想死你了']}\n
         total 接受最新的几条消息默认为5
         '''
         newmsg_dic={}#新消息字典 
